@@ -24,4 +24,10 @@ describe Banking do
     expect(@subject.balance).to eq(1500)
   end
 
+  it "is able to subtract a withdrawal from the account balance" do
+    @subject.add(1000)
+    @subject.remove(250)
+    expect(@subject.balance).to eq(750)
+  end
+
 end

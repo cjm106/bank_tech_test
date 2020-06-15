@@ -17,6 +17,7 @@ class Banking
 
   def remove(amount)
     @withdrawals << [amount, @date]
+    @balance -= amount
   end
 
 end
