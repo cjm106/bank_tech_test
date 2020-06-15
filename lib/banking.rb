@@ -11,13 +11,17 @@ class Banking
   end
 
   def add(amount)
-    @deposits << [amount, @date]
     @balance += amount
+    @deposits << [ @date, amount, "", @balance ]
   end
 
   def remove(amount)
-    @withdrawals << [amount, @date]
     @balance -= amount
+    @withdrawals << [ @date, "", amount, @balance ]
+  end
+
+  def print_header
+    return "date || credit || debit || balance"
   end
 
 end
