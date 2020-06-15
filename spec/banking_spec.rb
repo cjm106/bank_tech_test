@@ -2,19 +2,26 @@ require './lib/banking'
 
 describe Banking do
 
-  subject = Banking.new
+ before(:each) do
+   @subject = Banking.new
+   @current_date = Time.now.strftime("%d/%m/%Y")
+ end
 
-  current_date = Time.now.strftime("%d/%m/%Y")
 
   it "is able to accept deposits" do
-    subject.add(1000)
-    expect(subject.deposits).to eq([[1000, current_date]])
+    @subject.add(1000)
+    expect(@subject.deposits).to eq([[1000, @current_date]])
   end
 
   it "is able to accept withdrawal requests" do
-
-   subject.remove(500)
-    expect(subject.withdrawals).to eq([[500, current_date]])
-
+    @subject.remove(500)
+    expect(@subject.withdrawals).to eq([[500, @current_date]])
   end
+
+  it "is able to add a deposit to the account balance" do
+    @subject.add(1000)
+    @subject.add(500)
+    expect(@subject.balance).to eq(1500)
+  end
+
 end
