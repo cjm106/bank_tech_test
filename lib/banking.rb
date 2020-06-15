@@ -20,16 +20,21 @@
       @withdrawals << [ @date, "", amount, @balance ]
     end
 
-    def print_header
-      return "date || credit || debit || balance"
+    def header
+      puts "date || credit || debit || balance"
     end
 
     def statement
       balance_sheet = [].concat(@deposits).concat(@withdrawals)
       balance_sheet = balance_sheet.sort_by{|x|x[0]}.reverse
       balance_sheet.each do |n|
-        return n*' || '
+       puts n.*' || '.delete_prefix('"').delete_suffix('"')
       end
+    end
+
+    def print
+      header
+      statement
     end
 
 
