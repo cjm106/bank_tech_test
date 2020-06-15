@@ -34,5 +34,14 @@ describe Banking do
     expect(subject.print_header).to eq("date || credit || debit || balance")
   end
 
+  it "is able return desposits in the format: 'date || credit |||| balance' "do
+    @subject.add(1000)
+    expect(@subject.statement).to include("|| 1000 ||  || 1000")
+  end
+
+  it "is able return withdrawals in the format: 'date || || withdrawl || balance' "do
+    @subject.remove(1000)
+    expect(@subject.statement).to include("||  || 1000 || -1000")
+  end
 
 end
