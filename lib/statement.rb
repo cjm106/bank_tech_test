@@ -1,7 +1,6 @@
-
 class Statement
 
-  def initialize(deposits,withdrawals)
+  def initialize(deposits, withdrawals)
     @deposits = deposits
     @withdrawals = withdrawals
   end
@@ -12,7 +11,7 @@ class Statement
 
   def ledger
     entry = [].concat(@deposits).concat(@withdrawals)
-    entry = entry.sort_by{|x|x[0]}.reverse
+    entry = entry.sort_by { |x| x[0] }.reverse
     entry.each do |n|
       puts n.*' || '.delete_prefix('"').delete_suffix('"')
     end

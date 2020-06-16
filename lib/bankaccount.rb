@@ -13,12 +13,12 @@ class BankAccount
 
   def add(amount)
     @balance += amount
-    @deposits << [ @date, amount, "", @balance ]
+    @deposits << [@date, amount, "", @balance]
   end
 
   def remove(amount)
     @balance -= amount
-    @withdrawals << [ @date, "", amount, @balance ]
+    @withdrawals << [@date, "", amount, @balance]
   end
 
   def print_statement
