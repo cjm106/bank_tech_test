@@ -1,18 +1,38 @@
 # Bank tech test
 
-Banking Tech test exemplar.
+Banking tech test exemplar.
 
+
+## Instructions
+
+```
+    $ git clone git@github.com:cjm106/bank_tech_test.git
+    $ cd bank_tech_test
+    $ rspec   # to run tests and check coverage
+    $ rubocop # to check linting
+
+```
+## Interaction
+
+In the working directory:
+
+```
+    $ pry
+    $ require './lib/bankaccount.rb'
+    $ account = BankAccount.new
+    => #<BankAccount:0x00007fde7b16f6c8 @balance=0, @date="16/06/2020", @deposits=[], @withdrawals=[]>
+    $ account.add(1000)
+    => [["16/06/2020", 1000, "", 1000]]
+    $ account.remove(500)
+    => [["16/06/2020", "", 500, 500]]
+    $ account.print_statement
+    date || credit || debit || balance
+    16/06/2020 ||  || 500 || 500
+    16/06/2020 || 1000 ||  || 1000
+
+```
 
 ## Specification
-
-### Requirements
-
-* You should be able to interact with your code via a REPL like IRB or the JavaScript console.  (You don't need to implement a command line interface that takes input from STDIN.)
-* Deposits, withdrawal.
-* Account statement (date, amount, balance) printing.
-* Data can be kept in memory (it doesn't need to be stored to a database or anything).
-
-### Acceptance criteria
 
 **Given** a client makes a deposit of 1000 on 10-01-2012  
 **And** a deposit of 2000 on 13-01-2012  
@@ -27,6 +47,71 @@ date || credit || debit || balance
 10/01/2012 || 1000.00 || || 1000.00
 ```
 
-## Self-assessment
+## User Stories
 
-Once you have completed the challenge and feel happy with your solution, here's a form to help you reflect on the quality of your code: https://docs.google.com/forms/d/1Q-NnqVObbGLDHxlvbUfeAC7yBCf3eCjTmz6GOqC9Aeo/edit
+```
+As a bank customer
+So that I can save up to buy a car
+I would like to be able to deposit money into my account  
+```
+
+```
+As a bank customer
+So that I can buy food
+I would like to be able to withdraw money from my account
+```
+
+```
+As a bank customer
+So that I can keep track of the transactions on my account
+I would like to be able to print my bank statement.
+```
+
+
+## Approach
+
+The functionality described in the user stories above was broken down as follows:
+
+1. deposit (add)
+  - update balance
+  - record deposit
+
+2. withdraw (remove)
+  - update balance
+  - record withdrawal
+
+3. print (print_statement)
+  - print header
+  - print ledger
+
+The application was then TDD'd to include the above and then refactored into separate BankAccount and Statement classes.
+
+
+## Models
+
+### BankAccount
+
+Methods:
+
+- add
+- remove
+- print_statement
+
+Attributes:
+
+- deposits
+- withdrawals
+- balance
+- date
+
+### Statement
+
+Methods:
+
+- header
+- ledger
+
+Attributes:
+
+- deposits
+- withdrawals
