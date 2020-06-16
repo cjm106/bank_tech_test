@@ -1,9 +1,9 @@
-require './lib/banking'
+require './lib/bankaccount'
 
-describe Banking do
+describe BankAccount do
 
  before(:each) do
-   @subject = Banking.new
+   @subject = BankAccount.new
    @current_date = Time.now.strftime("%d/%m/%Y")
  end
 
@@ -31,7 +31,7 @@ describe Banking do
   end
 
   it "is able to return a statement header  "do
-    expect{subject.header}.to output("date || credit || debit || balance\n").to_stdout
+    expect{@subject.header}.to output("date || credit || debit || balance\n").to_stdout
   end
 
   it "is able return desposits in the format: 'date || credit ||  || balance' "do

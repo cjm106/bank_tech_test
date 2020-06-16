@@ -1,5 +1,5 @@
 
-  class Banking
+  class BankAccount
 
     attr_reader :deposits, :withdrawals, :balance
 
