@@ -4,6 +4,7 @@ class Transactions
 
   def initialize
     @deposits = []
+    @withdrawals = []
   end
 
   def money_in(transaction)
@@ -11,7 +12,7 @@ class Transactions
   end
 
   def money_out(transaction)
-    transaction
+    @withdrawals << transaction
   end
 
 end
