@@ -21,14 +21,14 @@ In the working directory:
     $ require './lib/bankaccount.rb'
     $ account = BankAccount.new
     => #<BankAccount:0x00007fde7b16f6c8 @balance=0, @date="16/06/2020", @deposits=[], @withdrawals=[]>
-    $ account.add(1000)
-    => [["16/06/2020", 1000, "", 1000]]
-    $ account.remove(500)
-    => [["16/06/2020", "", 500, 500]]
+    $ account.add(1000.00)
+    => [["16/06/2020", "1000.00", "", "1000.00"]]
+    $ account.remove(500.00)
+    => [["16/06/2020", "", "500.00", "500.00"]]
     $ account.print_statement
     date || credit || debit || balance
-    16/06/2020 ||  || 500 || 500
-    16/06/2020 || 1000 ||  || 1000
+    16/06/2020 ||  || 500.00 || 500.00
+    16/06/2020 || 1000.00 ||  || 1000.00
 
 ```
 
@@ -64,7 +64,7 @@ I would like to be able to withdraw money from my account
 ```
 As a bank customer
 So that I can keep track of the transactions on my account
-I would like to be able to print my bank statement.
+I would like to be able to print my bank statement
 ```
 
 
