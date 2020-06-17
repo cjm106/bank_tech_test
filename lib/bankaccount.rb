@@ -21,6 +21,7 @@ class BankAccount
   def remove(amount)
     @balance -= amount
     @withdrawals << [@date, "", format('%<a>.2f', a: amount), format('%<b>.2f', b: @balance)]
+    @transaction.withdrawals(@withdrawals)
   end
 
   def print_statement
