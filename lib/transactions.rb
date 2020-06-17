@@ -1,11 +1,17 @@
 class Transactions
 
-  def deposits(money_in)
-    money_in
+  attr_reader :deposits
+
+  def initialize
+    @deposits = []
   end
 
-  def withdrawals(money_out)
-    money_out
+  def money_in(transaction)
+    @deposits << transaction
+  end
+
+  def money_out(transaction)
+    transaction
   end
 
 end

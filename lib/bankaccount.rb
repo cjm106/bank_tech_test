@@ -1,4 +1,5 @@
 require_relative "statement"
+require_relative "transactions"
 
 class BankAccount
 
@@ -15,13 +16,13 @@ class BankAccount
   def add(amount)
     @balance += amount
     @deposits << [@date, format('%<a>.2f', a: amount), "", format('%<b>.2f', b: @balance)]
-    @transaction.deposits(@deposits)
+    @transaction.money_in(@deposits)
   end
 
   def remove(amount)
     @balance -= amount
     @withdrawals << [@date, "", format('%<a>.2f', a: amount), format('%<b>.2f', b: @balance)]
-    @transaction.withdrawals(@withdrawals)
+    @transaction.money_out(@withdrawals)
   end
 
   def print_statement
