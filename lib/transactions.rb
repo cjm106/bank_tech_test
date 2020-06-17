@@ -1,2 +1,9 @@
 class Transactions
-end  
+
+   def deposits(money_in)
+
+     money_in
+
+   end
+
+end

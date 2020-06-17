@@ -9,11 +9,13 @@ class BankAccount
     @withdrawals = []
     @balance = 0
     @date = Time.now.strftime("%d/%m/%Y")
+    @transaction = Transactions.new
   end
 
   def add(amount)
     @balance += amount
     @deposits << [@date, format('%<a>.2f', a: amount), "", format('%<b>.2f', b: @balance)]
+    @transaction.deposits(@deposits)
   end
 
   def remove(amount)
