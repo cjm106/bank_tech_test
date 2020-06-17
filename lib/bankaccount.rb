@@ -13,12 +13,12 @@ class BankAccount
 
   def add(amount)
     @balance += amount
-    @deposits << [@date, amount, "", @balance]
+    @deposits << [@date, format('%<a>.2f', a: amount), "", format('%<b>.2f', b: @balance)]
   end
 
   def remove(amount)
     @balance -= amount
-    @withdrawals << [@date, "", amount, @balance]
+    @withdrawals << [@date, "", format('%<a>.2f', a: amount), format('%<b>.2f', b: @balance)]
   end
 
   def print_statement
