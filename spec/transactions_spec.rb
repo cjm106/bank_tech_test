@@ -1,5 +1,4 @@
 require './lib/transactions'
-require './lib/bankaccount'
 
 describe Transactions do
 

@@ -84,7 +84,7 @@ The functionality described in the user stories above was broken down as follows
   - print header
   - print ledger
 
-The application was then TDD'd to include the above and then refactored into separate BankAccount and Statement classes.
+The application was then TDD'd to include the above and then refactored into separate BankAccount, Statement and Transaction classes.
 
 
 ## Models
@@ -99,10 +99,8 @@ Methods:
 
 Attributes:
 
-- deposits
-- withdrawals
+- transactions
 - balance
-- date
 
 ### Statement
 
@@ -110,6 +108,18 @@ Methods:
 
 - header
 - ledger
+
+Attributes:
+
+- deposits
+- withdrawals
+
+### Transactions
+
+Methods:
+
+- money_in
+- money_out
 
 Attributes:
 

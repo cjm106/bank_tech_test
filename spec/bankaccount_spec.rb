@@ -9,12 +9,12 @@ describe BankAccount do
 
   it "is able to accept deposits" do
     @subject.add(1000)
-    expect(@subject.deposits).to eq([[@current_date, "1000.00", "", "1000.00"]])
+    expect(@subject.transactions.deposits).to eq([[@current_date, "1000.00", "", "1000.00"]])
   end
 
   it "is able to accept withdrawal requests" do
     @subject.remove(500)
-    expect(@subject.withdrawals).to eq([[@current_date, "", "500.00", "-500.00"]])
+    expect(@subject.transactions.withdrawals).to eq([[@current_date, "", "500.00", "-500.00"]])
   end
 
   it "is able to add a deposit to the account balance" do

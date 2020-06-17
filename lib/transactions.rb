@@ -1,6 +1,6 @@
 class Transactions
 
-  attr_reader :deposits
+  attr_reader :deposits, :withdrawals
 
   def initialize
     @deposits = []
