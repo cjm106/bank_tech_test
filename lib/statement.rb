@@ -17,4 +17,9 @@ class Statement
     end
   end
 
+  def print
+    header
+    ledger
+  end
+
 end
