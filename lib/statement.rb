@@ -5,6 +5,13 @@ class Statement
     @withdrawals = withdrawals
   end
 
+  def print
+    header
+    ledger
+  end
+
+  private
+
   def header
     puts "date || credit || debit || balance"
   end
