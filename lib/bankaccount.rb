@@ -10,13 +10,13 @@ class BankAccount
     @transactions = TransactionHistory.new
   end
 
-  def add(amount)
+  def deposit(amount)
     @balance += amount
     transaction = [date, format('%<a>.2f', a: amount), "", format('%<b>.2f', b: @balance)]
     @transactions.money_in(transaction)
   end
 
-  def remove(amount)
+  def withdraw(amount)
     @balance -= amount
     transaction = [date, "", format('%<a>.2f', a: amount), format('%<b>.2f', b: @balance)]
     @transactions.money_out(transaction)
