@@ -6,15 +6,11 @@ class Statement
   end
 
   def print
-    header
+    puts "date || credit || debit || balance"
     ledger
   end
 
   private
-
-  def header
-    puts "date || credit || debit || balance"
-  end
 
   def ledger
     entry = [].concat(@deposits).concat(@withdrawals)
