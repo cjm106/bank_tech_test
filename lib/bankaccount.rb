@@ -1,5 +1,5 @@
 require_relative "statement"
-require_relative "transactions"
+require_relative "transactionhistory"
 
 class BankAccount
 
@@ -7,7 +7,7 @@ class BankAccount
 
   def initialize
     @balance = 0
-    @transactions = Transactions.new
+    @transactions = TransactionHistory.new
   end
 
   def add(amount)

@@ -1,9 +1,9 @@
-require './lib/transactions'
+require './lib/transactionhistory'
 
-describe Transactions do
+describe TransactionHistory do
 
   before(:each) do
-    @subject = Transactions.new
+    @subject = TransactionHistory.new
     @current_date = Time.now.strftime("%d/%m/%Y")
   end
 

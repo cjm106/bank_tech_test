@@ -1,4 +1,4 @@
-class Transactions
+class TransactionHistory
 
   attr_reader :deposits, :withdrawals
 
