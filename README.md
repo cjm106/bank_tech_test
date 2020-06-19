@@ -20,10 +20,13 @@ In the working directory:
     $ pry
     $ require './lib/bankaccount.rb'
     $ account = BankAccount.new
-    => #<BankAccount:0x00007fde7b16f6c8 @balance=0, @date="16/06/2020", @deposits=[], @withdrawals=[]>
-    $ account.add(1000.00)
+    => #<BankAccount:0x00007f9b0ba38808
+    @balance=0,
+    @statement=#<Statement:0x00007f9b0ba386f0 @deposits=[], @withdrawals=[]>,
+    @transactions=#<TransactionHistory:0x00007f9b0ba38790 @deposits=[], @withdrawals=[]>>
+    $ account.deposit(1000.00)
     => [["16/06/2020", "1000.00", "", "1000.00"]]
-    $ account.remove(500.00)
+    $ account.withdraw(500.00)
     => [["16/06/2020", "", "500.00", "500.00"]]
     $ account.print_statement
     date || credit || debit || balance
@@ -72,15 +75,15 @@ I would like to be able to print my bank statement
 
 The functionality described in the user stories above was broken down as follows:
 
-1. deposit (add)
+1. deposit
   - update balance
   - record deposit
 
-2. withdraw (remove)
+2. withdraw
   - update balance
   - record withdrawal
 
-3. print (print_statement)
+3. print
   - print header
   - print ledger
 
@@ -93,20 +96,21 @@ The application was then TDD'd to include the above and then refactored into sep
 
 Methods:
 
-- add
-- remove
+- deposit
+- withdraw
 - print_statement
 
 Attributes:
 
 - transactions
+- statement
 - balance
 
 ### Statement
 
 Methods:
 
-- header
+- print
 - ledger
 
 Attributes:
@@ -114,7 +118,7 @@ Attributes:
 - deposits
 - withdrawals
 
-### Transactions
+### TransactionHistory
 
 Methods:
 
